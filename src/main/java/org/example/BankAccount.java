@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class BankAccount {
 
-    int balance;
-    ArrayList<String> statement = new ArrayList<>();
+    private int balance;
+    private ArrayList<String> statement = new ArrayList<>();
 
     public BankAccount() {
         this.statement.add("Date");
