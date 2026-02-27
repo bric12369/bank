@@ -1,6 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class BankAccount {
@@ -17,7 +18,7 @@ public class BankAccount {
 
     public void deposit(int amount, LocalDate date){
         this.balance += amount;
-        this.statement.add(date.toString());
+        this.statement.add(formatDate(date));
         this.statement.add(String.valueOf(amount));
         this.statement.add("-");
         this.statement.add(String.valueOf(this.balance));
@@ -28,7 +29,7 @@ public class BankAccount {
             System.out.println("Transaction declined: insufficient funds");
         } else {
             this.balance -= amount;
-            this.statement.add(date.toString());
+            this.statement.add(formatDate(date));
             this.statement.add("-");
             this.statement.add(String.valueOf(amount));
             this.statement.add(String.valueOf(this.balance));
@@ -51,5 +52,10 @@ public class BankAccount {
                 formattedStatement = new StringBuilder();
             }
         }
+    }
+
+    public String formatDate(LocalDate date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return date.format(formatter);
     }
 }
