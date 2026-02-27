@@ -11,4 +11,8 @@ public class BankAccount {
     public void withdraw(int amount){
         this.balance -= amount;
     }
+
+    public void getCurrentBalance(){
+        System.out.println(this.balance);
+    }
 }
