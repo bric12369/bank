@@ -24,11 +24,15 @@ public class BankAccount {
     }
 
     public void withdraw(int amount, LocalDate date){
-        this.balance -= amount;
-        this.statement.add(date.toString());
-        this.statement.add("-");
-        this.statement.add(String.valueOf(amount));
-        this.statement.add(String.valueOf(this.balance));
+        if (amount > this.balance) {
+            System.out.println("Transaction declined: insufficient funds");
+        } else {
+            this.balance -= amount;
+            this.statement.add(date.toString());
+            this.statement.add("-");
+            this.statement.add(String.valueOf(amount));
+            this.statement.add(String.valueOf(this.balance));
+        }
     }
 
     public void getCurrentBalance(){

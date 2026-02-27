@@ -10,5 +10,6 @@ public class Main {
         bankAccount.withdraw(250, LocalDate.of(2026, 2, 2));
         bankAccount.getCurrentBalance();
         bankAccount.generateStatement();
+        bankAccount.withdraw(3000, LocalDate.of(2026, 2, 5));
     }
 }
